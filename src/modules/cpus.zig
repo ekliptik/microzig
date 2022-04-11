@@ -39,3 +39,14 @@ pub const cortex_m4 = Cpu{
         .abi = .none,
     },
 };
+
+pub const riscv = Cpu{
+    .name = "RV32I",
+    .path = root_path ++ "cpus/risc-v/rv32i.zig",
+    .target = std.zig.CrossTarget{
+        .cpu_arch = .riscv32,
+        .cpu_model = .{ .explicit = &std.Target.riscv.cpu.generic_rv32 },
+        .os_tag = .freestanding,
+        .abi = .none,
+    },
+};

@@ -83,3 +83,14 @@ pub const nrf52832 = Chip{
         MemoryRegion{ .offset = 0x20000000, .length = 0x10000, .kind = .ram },
     },
 };
+
+const hack = 2*1024;
+pub const risc_je_zisk = Chip{
+    .name = "RISC je zisk",
+    .path = root_path ++ "chips/risc-v/risc-v.zig",
+    .cpu = cpus.riscv,
+    .memory_regions = &.{
+        MemoryRegion{ .offset = 0x00000000, .length = hack, .kind = .flash },
+        MemoryRegion{ .offset = hack, .length = hack, .kind = .ram },
+    },
+};
